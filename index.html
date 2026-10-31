@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#7f2140">
+  <meta name="description" content="See every uOttawa Dining Hall station at a glance. Choose your meal, filter by dietary labels, and keep your preferences saved on your device.">
+  <title>uOttawa Menu at a Glance</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'%3E%3Crect width='40' height='40' rx='10' fill='%237f2140'/%3E%3Cpath d='M12 10v10m4-10v10m4-10v10m-8-4h8m-4 4v11m12-21v21m0-21c-5 2-5 13 0 13' fill='none' stroke='%23fff6f8' stroke-width='2' stroke-linecap='round'/%3E%3C/svg%3E">
+  <link rel="stylesheet" href="./style.css">
+  <script type="module" src="./app.js"></script>
+</head>
+<body>
+  <a class="skip" href="#menu">Skip to menu</a>
+  <div class="page">
+    <header class="masthead">
+      <div><p class="eyebrow"><span class="brand-mark" aria-hidden="true">uO</span> DINING HALL</p><h1>Menu at a glance<span>.</span></h1><p class="intro">Your meal. Every station. Just the options that fit.</p></div>
+      <a id="original-top" class="source-link" target="_blank" rel="noopener" href="https://www.uottawa.ca/campus-life/eat-campus/dining-hall/menu">Original menu <span aria-hidden="true">↗</span></a>
+    </header>
+
+    <section class="controls" aria-label="Choose date, meals and dietary preferences">
+      <div class="when-row">
+        <div class="date-control"><label for="menu-date" class="field-label">DATE</label><div class="date-buttons"><button id="previous" class="icon-button" aria-label="Previous day">←</button><input id="menu-date" type="date" aria-label="Menu date" required><button id="next" class="icon-button" aria-label="Next day">→</button><button id="today" class="text-button">Today</button></div></div>
+        <fieldset class="meal-field"><legend class="field-label">MEAL <span>Choose one or more</span></legend><div class="meal-options" id="meal-options"></div></fieldset>
+      </div>
+      <div class="diet-row"><fieldset class="diet-field"><legend class="field-label">DIETARY FILTERS</legend><div class="diet-options" id="diet-options"></div></fieldset><button id="clear" class="text-button clear-button">Clear filters</button></div>
+      <div class="preferences-row"><label class="meat-toggle"><input type="checkbox" id="meat-only"><span>Meat &amp; fish only</span></label><p id="filter-help">Matches every checked filter. Vegetarian includes vegan.</p><span id="saved" class="save-note">Saved on this device</span></div>
+    </section>
+
+    <main id="menu" tabindex="-1">
+      <div class="results-header"><div><p id="date-label" class="date-label"></p><h2 id="results-title">Loading the menu…</h2><p id="results-summary" class="results-summary" role="status" aria-live="polite"></p></div><button id="refresh" class="refresh-button" aria-label="Refresh menu"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M20 7v5h-5M4 17v-5h5"/><path d="M6.1 7a7 7 0 0 1 11.6-1L20 9M4 15l2.3 3A7 7 0 0 0 18 17"/></svg>Refresh</button></div>
+      <div id="notice" class="notice" hidden></div>
+      <div id="results" aria-busy="true"><div class="skeleton" aria-hidden="true"></div><div class="skeleton" aria-hidden="true"></div><div class="skeleton" aria-hidden="true"></div></div>
+    </main>
+
+    <footer>
+      <div class="legend" aria-label="Menu badge legend"><span><b class="badge-gf">GF</b> Made without gluten</span><span><b class="badge-df">DF</b> Made without dairy</span><span><b class="badge-v">V</b> Vegetarian</span><span><b class="badge-vg">VG</b> Vegan</span><span><b class="badge-h">H</b> Halal</span><span><b class="badge-s">S</b> Spicy</span><span><b class="badge-p">P</b> Protein (meat &amp; fish)</span></div>
+      <details><summary>About the menu &amp; dietary labels</summary><div class="about-copy"><p>An independent viewer of uOttawa’s published Dining Hall menu. Menu items and dietary labels come directly from the university. Availability can change.</p><p>Dietary filters use the published icons. “Made without gluten” and “Made without dairy” describe ingredients, not a guarantee against cross-contact. A labelled filling or protein does not make its bun, tortilla or complete dish suitable. Check with Dining Hall staff about your needs.</p><p>The P (Protein) badge and “Meat &amp; fish only” filter identify meat or fish from dish names. P is our guide to those options, not a university label or a protein-content measurement. It can include toppings and may miss ambiguous names. Vegetarian includes items labelled vegan. Missing labels mean unconfirmed.</p><p>Your dietary and meal selections stay in this browser. Dates follow Ottawa time. The page loads the university menu directly when you choose a date. If live loading fails, a previously viewed menu for that exact date may be shown with a warning.</p><p><a href="https://www.uottawa.ca/campus-life/eat-campus/dietary-restrictions" target="_blank" rel="noopener">Dietary Restrictions Program &amp; allergy information ↗</a></p></div></details>
+      <div class="footer-bottom"><span>Made for an easier trip to the Dining Hall.</span><a id="original-bottom" href="https://www.uottawa.ca/campus-life/eat-campus/dining-hall/menu" target="_blank" rel="noopener">View uOttawa’s menu ↗</a></div>
+    </footer>
+  </div>
+</body>
+</html>
