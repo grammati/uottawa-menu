@@ -83,10 +83,12 @@ function render() {
   }
   let total = 0, matching = 0;
   const visible = selectedMeals.map(meal => ({ meal, stations: menu.stations.map(station => {
-    const items = (station.meals[meal] || []).filter(item => !item.heading);
+    const entries = station.meals[meal] || [];
+    const descriptions = entries.filter(item => item.heading).map(item => item.name.replace(/^\*+\s*/, ''));
+    const items = entries.filter(item => !item.heading);
     const filtered = items.filter(item => matches(item, prefs.filters, prefs.meatOnly));
     total += items.length; matching += filtered.length;
-    return { name: station.name, items, filtered };
+    return { name: station.name, descriptions, items, filtered };
   }) }));
   const filtered = prefs.filters.length > 0 || prefs.meatOnly;
   const stationCount = menu.stations.length;
@@ -103,8 +105,13 @@ function render() {
     for (const station of group.stations) {
       const section = element('section', `station${station.filtered.length ? '' : ' empty'}`);
       const heading = element('div', 'station-heading');
+      const identity = element('div', 'station-identity');
+      identity.append(element('h3', null, station.name));
+      for (const description of station.descriptions) {
+        identity.append(element('p', 'station-menu-title', description));
+      }
       const counted = filtered ? station.items.length : station.filtered.length;
-      heading.append(element('h3', null, station.name), element('p', null, `${station.filtered.length}${filtered ? ` of ${station.items.length}` : ''} ${counted === 1 ? 'item' : 'items'}`));
+      heading.append(identity, element('p', 'station-count', `${station.filtered.length}${filtered ? ` of ${station.items.length}` : ''} ${counted === 1 ? 'item' : 'items'}`));
       section.append(heading);
       if (station.filtered.length) {
         const list = element('ul', 'items'); list.append(...station.filtered.map(renderItem)); section.append(list);

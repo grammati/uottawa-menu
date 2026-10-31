@@ -13,3 +13,6 @@
 .badge-h{--badge-ink:oklch(37% .12 300);--badge-bg:oklch(95% .025 300);--badge-border:oklch(84% .055 300)}
 .badge-s{--badge-ink:oklch(39% .13 30);--badge-bg:oklch(95% .028 30);--badge-border:oklch(83% .065 30)}
 .badge-p{--badge-ink:oklch(36% .13 7);--badge-bg:oklch(94% .035 7);--badge-border:oklch(80% .07 7)}
+.station-identity{min-width:0}
+.station-heading .station-menu-title{color:var(--ink);font-size:.82rem;font-weight:500;line-height:1.45;white-space:normal;overflow-wrap:anywhere;margin:4px 0 9px}
+.station-heading .station-count{flex-shrink:0}

@@ -50,7 +50,7 @@ export function parseMenu(html, requestedDate, Parser = DOMParser) {
         copy.querySelectorAll('i, .diet-icon, img').forEach(el => el.remove());
         const name = copy.textContent.replace(/\s+/g, ' ').trim();
         const heading = /^\*/.test(name) || /^omelette station$/i.test(name);
-        return { name: name.replace(/^\*\s*/, ''), labels, heading };
+        return { name: name.replace(/^\*+\s*/, ''), labels, heading };
       }).filter(item => item.name);
     }
     return { name, meals };
