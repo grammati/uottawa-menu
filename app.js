@@ -1,4 +1,4 @@
-import { FILTERS, MEALS, todayInOttawa, validDate, shiftDate, sourceUrl, parseMenu, matches, hasLabel, isMeatOrFish, readPreferences } from './menu.js';
+import { FILTERS, MEALS, todayInOttawa, validDate, shiftDate, sourceUrl, parseMenu, matches, hasLabel, isMeatOrFish, readPreferences } from './menu.js?v=station-titles-1';
 
 const $ = id => document.getElementById(id);
 let storage;
